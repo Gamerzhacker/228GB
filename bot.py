@@ -5,6 +5,7 @@ import json
 import random
 import string
 
+token = ''
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='/', intents=intents)
@@ -163,8 +164,5 @@ async def dropipv4(ctx):
     save_vps_data(data)
     await ctx.send("Added dropped VPS list.")
 
-# Load token from config.json and run
-if __name__ == "__main__":
-    with open("config.json", "r") as f:
-        config = json.load(f)
-    bot.run(config["token"])
+# run the bot
+bot.run(token)
